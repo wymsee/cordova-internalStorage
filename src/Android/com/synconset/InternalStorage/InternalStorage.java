@@ -24,6 +24,7 @@ public class InternalStorage extends CordovaPlugin {
 						callbackContext.success(obj);
 					} catch (Exception e) {
 						e.printStackTrace();
+						callbackContext.error(e.getMessage());
 					}
 				}
 			});

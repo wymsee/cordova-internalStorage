@@ -9,8 +9,10 @@ var exec = require('cordova/exec');
 var internalStorage = {};
 
 internalStorage.getDir = function(successCallback, errorCallback) {
-	var fail = function() {
-		errorCallback && errorCallback();	
+	var fail = function(message) {
+		if (errorCallback) {
+			errorCallback(message);
+		}
 	};
 	var success = function(file_system) {
 		if (file_system) {
@@ -21,7 +23,7 @@ internalStorage.getDir = function(successCallback, errorCallback) {
 			}
 		} else {
 			// no FileSystem object returned
-			fail();
+			fail("no fileSystem object returned");
 		}
 	};
   return exec(success, fail, "InternalStorage", "getDir", []);
