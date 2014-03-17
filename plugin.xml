@@ -18,12 +18,12 @@
 		<clobbers target="plugins.internalStorage" />
 	</js-module>
 	
-	<dependency id="org.apache.cordova.file" />
+	<dependency id="org.apache.cordova.file" commit="r0.2.5" />
 
 
 	<!-- android -->
 	<platform name="android">
-		<config-file target="config.xml" parent="/*">
+		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="InternalStorage">
 				<param name="android-package" value="com.synconset.InternalStorage"/>
 			</feature>
